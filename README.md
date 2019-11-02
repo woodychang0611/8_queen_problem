@@ -1,2 +1,2 @@
-# 15_puzzle_problem
-15 puzzle problem
+# 8_queen_problem
+8 Queen Problem
