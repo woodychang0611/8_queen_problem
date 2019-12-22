@@ -29,7 +29,7 @@ class EightQueensState:
             return False
         else:
             return True
-    #check queeen count of differet axis
+    #check queeen attack count of differet axis
     def check_statistic(self):
         statistic={}
         for i in range(9):
@@ -69,8 +69,9 @@ class EightQueensProblem:
         return node.parent.cost+1
 
     def heuristic(self,state):
+        #return 0
         statistic = state.check_statistic()
-        return -statistic[0]
+        return 46-statistic[0]
 
     def test_fail(self,node):
         return node.state.is_fail()

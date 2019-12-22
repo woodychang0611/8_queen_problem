@@ -100,6 +100,8 @@ class SearchAgent:
         max_queue_size=0
         if (self.problem.test_goal(node.state)):
             return node,node.score,max_queue_size
+        if (self.problem.test_fail(node)):
+            return None,float('inf'),0
         new_nodes=[]
         for successor in self.problem.get_successors(node.state):
             action,state = successor
@@ -115,6 +117,7 @@ class SearchAgent:
             new_nodes.sort(key=lambda n:n.score)
             best = new_nodes[0]
             if(best.score > f_limit):
+
                 return None,best.score,0
             if (len(new_nodes)>=2):
                 alternative = new_nodes[1].score
